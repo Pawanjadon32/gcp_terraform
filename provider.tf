@@ -1,14 +1,21 @@
+# =============================================
+# GCP VM Instance - Main Configuration
+# =============================================
+
 terraform {
+  required_version = ">= 1.3.0"
+
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "~> 6.0"
+      version = "~> 5.0"
     }
   }
 }
 
+# ---- Provider ----
 provider "google" {
-  project = "my-first-project"
-  region  = "asia-south1"
-  zone    = "asia-south1-a"
+  project = var.project_id
+  region  = var.region
+  zone    = var.zone
 }
